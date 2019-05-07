@@ -1,7 +1,7 @@
 
 The app code is designed in a way that it generates the UI dynamically (including filtering variables and their values) based on a simple schema of an input CSV file. 
 
-### Input CSV file schema 
+## Input CSV file schema 
 
 CSV input file should consist on 2 groups of columns. 
 
@@ -32,11 +32,20 @@ Note:
 
 #### Example 
 
-Example of input CSV file schema is located 
+Example of input CSV file schema is located at  [data/data-foo.csv](https://raw.githubusercontent.com/martakarass/screening-site/master/data/data-foo.csv). It was simulated with the use of R script [R/simulate-foo-data.R](https://github.com/martakarass/screening-site/blob/master/R/simulate-foo-data.R). 
 
 
+## Filtering logic 
+
+The filtering logic works as follows: for a study to pass the filter, the selected variable value in filter must  
+have value `1` in CSV input file for corresponding `"STUDY_VARIABLE=STUDY_VARIABLE_VALUE"` variable, and this agreement must be kept for all variables the filter defines (the CSV file defines). 
 
 
+## App screenshot 
+
+The properly launched app should look like this: 
+
+![foo](figures/pic1.png)
 
  
 
