@@ -81,7 +81,7 @@ server <- function(input, output) {
   ## - Study variables,
   ## - Study variables values,
   ## in long format data frame.
-  get.var.df.long <- reactive({ 
+  get.study.var.varvals.df_long <- reactive({ 
     data <- read.data()
     var.df <- data[, setdiff(names(data), c(STUDY.META.VARNAMES))]
     var.df %>%
@@ -99,7 +99,7 @@ server <- function(input, output) {
   ## in a list format.
   get.var.varvalues.list <- reactive({ 
     var.varvalues.df <- 
-      get.var.df.long() %>%
+      get.study.var.varvals.df_long() %>%
       select(variable, variable_value) %>% 
       distinct()
     var.varvalues.list <- list()
@@ -172,7 +172,7 @@ server <- function(input, output) {
 
     ## Get "fixed" (data input file-specific) objects 
     study.description.df  <- get.study.description.df()
-    var.df.long           <- get.var.df.long()
+    study.var.varvals.df_long           <- get.study.var.varvals.df_long()
     
     ## Get data from newly submitted filter of variables values
     new.varvals.filter.df <- get.varvals.filter()
@@ -180,7 +180,7 @@ server <- function(input, output) {
 
     ## Filter study to keep only these which pass the filter
     out.df <-
-      var.df.long %>%
+      study.var.varvals.df_long %>%
       inner_join(new.varvals.filter.df %>% mutate(value_filter = 1), 
                  by = c("variable", "variable_value")) %>%
       group_by(Study) %>%
