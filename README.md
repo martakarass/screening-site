@@ -45,7 +45,7 @@ have value `1` in CSV input file for corresponding `"STUDY_VARIABLE=STUDY_VARIAB
 
 The properly launched app should look like this: 
 
-![foo](figures/pic1.png)
+![foo](https://i.imgur.com/vCmjBnV.png)
 
  
 
